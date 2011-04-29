@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Data;
 using System.Configuration;
 using System.Collections.Specialized;
@@ -18,15 +18,16 @@ public class oAuthGamestamper
     public enum Method { GET, POST };
     public const string AUTHORIZE = "https://www.gamestamper.com/oauth/authorize";
     public const string ACCESS_TOKEN = "https://www.gamestamper.com/oauth/access_token";
-    public const string CALLBACK_URL = "http://shit.local.com:56744/GHClient/fbtarget.aspx";
+    public const string CALLBACK_URL = "http://www.yourserver.com/GHClient/callbackpage.aspx";
 
-    private string _aPIId = "acqvsca0ceedhm2ae2ii1qh3sd";
-    private string _consumerKey = "acqvsca0ceedhm2ae2ii1qh3sd";
-    private string _consumerSecret = "p6u0z4245d730t37de79trd0";
+    private string _apiId = "{Your GameStamper Application Id}";
+    private string _consumerKey = "{Your GameStamper Key}";
+    private string _consumerSecret = "{Your GameStamper Secret}";
     private string _token = "";
     private string _rawResponse = "";
     private string _rawCodeResponse = "";
     private DateTime? _expires = null;
+
     #region Properties
 
     public string ConsumerKey
@@ -35,7 +36,7 @@ public class oAuthGamestamper
         {
             if (_consumerKey.Length == 0)
             {
-                _consumerKey = "1111111111111"; //Your application ID
+                _consumerKey = "1111111111111";
             }
             return _consumerKey;
         }
@@ -48,7 +49,7 @@ public class oAuthGamestamper
         {
             if (_consumerSecret.Length == 0)
             {
-                _consumerSecret = "11111111111111111111111111111111"; //Your application secret
+                _consumerSecret = "11111111111111111111111111111111";
             }
             return _consumerSecret;
         }
@@ -59,6 +60,7 @@ public class oAuthGamestamper
     public string RawTokenResponse { get { return _rawResponse; } set { _rawResponse = value; } }
     public string RawCodeResponse { get { return _rawCodeResponse; } set { _rawCodeResponse = value; } }
     public DateTime? Expires { get { return _expires; } set { _expires = value; } }
+    
     #endregion
 
     public string AuthorizationLinkGet(string permissions)
