@@ -20,7 +20,6 @@ public class oAuthGamestamper
     public const string ACCESS_TOKEN = "https://www.gamestamper.com/oauth/access_token";
     public const string CALLBACK_URL = "http://www.yourserver.com/GHClient/callbackpage.aspx";
 
-    private string _apiId = "{Your GameStamper Application Id}";
     private string _consumerKey = "{Your GameStamper Key}";
     private string _consumerSecret = "{Your GameStamper Secret}";
     private string _token = "";
